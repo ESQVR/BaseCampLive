@@ -1,2 +1,27 @@
 <h1>Projects#new</h1>
 <p>Find me in app/views/projects/new.html.erb</p>
+
+<h1>Projects#index</h1>
+<p>CREATE A NEW PROJECT</p>
+
+
+<%= form_with model: @project do |form| %>
+	Project
+	<%= form.label :title %>
+	<%= form.text_field :title %>
+	<% @project.errors.full_messages_for(:title).each do |message| %>
+		<div><%= message %></div>
+	<% end %>
+<br>
+<br>
+	<%= form.label :description, class: 'description-label' %>
+	<%= form.text_area :description, rows: 15, cols: 80, class: 'description-text-area' %>
+	<% @project.errors.full_messages_for(:description).each do |message| %>
+		<div><%= message %></div>
+	<% end %>
+<br>
+
+<%= form.submit %>
+<% end %>
+
+<%= link_to 'BACK TO HOME', root_path%>
