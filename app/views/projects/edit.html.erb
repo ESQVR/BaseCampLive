@@ -1,2 +1,24 @@
 <h1>Projects#edit</h1>
-<p>Find me in app/views/projects/edit.html.erb</p>
+<p>EDIT AN EXISTING PROJECT</p>
+
+
+<%= form_with model: @project do |form| %>
+	Project
+	<%= form.label :title %>
+	<%= form.text_field :title %>
+	<% @project.errors.full_messages_for(:title).each do |message| %>
+		<div><%= message %></div>
+	<% end %>
+<br>
+<br>
+	<%= form.label :description, class: 'description-label' %>
+	<%= form.text_area :description, rows: 15, cols: 80, class: 'description-text-area' %>
+	<% @project.errors.full_messages_for(:description).each do |message| %>
+		<div><%= message %></div>
+	<% end %>
+<br>
+
+<%= form.submit %>
+<% end %>
+
+<%= link_to 'BACK TO HOME', root_path%>

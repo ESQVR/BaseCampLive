@@ -4,4 +4,14 @@
 <%= @project.description%>
 <br>
 <br>
+<br>
+<%= link_to 'Delete PROJECT', project_path(@project),
+                data: { turbo_method: :delete,
+                        turbo_confirm: 'Permanently delete this project and all of its associated resources? (not recoverable)' } %>
+
+<br>
+<br>
+<%= link_to 'EDIT This PROJECT', edit_project_path(@project)%>
+<br>
+<br>
 <%= link_to 'BACK TO PROJECTS', projects_path%>
